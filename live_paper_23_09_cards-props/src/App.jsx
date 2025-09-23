@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import Card from "./components/card";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Array di oggetti, ogni oggetto rappresenta i dati di una card
 
+const cards = [
+  {
+    id: 1,
+    title: "Gatto curioso",
+    description: "Questo gatto ama dormire al sole.",
+    imageUrl: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    id: 2,
+    title: "Montagna",
+    description: "Aria fresca e sentieri tranquilli.",
+    imageUrl: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    id: 3,
+    title: "Caffè",
+    description: "Perfetto per iniziare la giornata.",
+    imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop"
+  },
+];
+
+export default function App() {
+  // Qui il genitore (App) passa le props (title, description, imageUrl) alla Card
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main>
+      <h1 style={{ textAlign: "center", marginTop: 24 }}>Le mie Card</h1>
+      <div className="grid">
+        {cards.map(card => (
+          <Card
+            key={card.id}
+            title={card.title}
+            description={card.description}
+            imageUrl={card.imageUrl}
+          />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </main>
+  );
 }
-
-export default App
