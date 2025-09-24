@@ -1,6 +1,7 @@
 // APP.JSX E' IL COMPONENTE GENITORE CHE PASSA LE PROPS AL COMPONENTE FIGLIO CARD
 // src/App.jsx
 
+
 import Card from "./components/card";
 
 // Array di oggetti, ogni oggetto rappresenta i dati di una card
