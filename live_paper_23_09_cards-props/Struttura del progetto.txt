@@ -1,0 +1,43 @@
+📂 Struttura del progetto (Vite + React)
+
+node_modules/
+Contiene tutte le dipendenze installate da npm (react, react-dom, vite, ecc.). Non devi toccarla: viene generata da npm install.
+
+public/
+File statici che non passano dal bundling (es. immagini, favicon). Se metti qui un file, sarà disponibile direttamente via URL (/miofile.png).
+
+src/
+Qui c’è tutto il codice dell’app:
+
+assets/ → dove tieni immagini, icone o file multimediali importabili in React.
+
+components/ → i componenti riutilizzabili, es. Card.jsx.
+
+App.jsx → il componente principale della tua applicazione.
+
+App.css → lo stylesheet collegato ad App.jsx. (RIMOSSO)
+
+main.css → lo stylesheet globale dell’app.
+
+main.jsx → è il file di ingresso. Qui React monta <App /> dentro al div #root di index.html.
+
+.gitignore
+Elenco dei file/cartelle che Git deve ignorare (es. node_modules).
+
+eslint.config.js
+Configurazione di ESLint, che serve per il linting (regole di stile/codice).
+
+index.html
+Il file HTML “base” da cui parte l’app. Ha solo un <div id="root"></div> in cui React monta l’app.
+
+package.json
+Il cuore del progetto: contiene nome, versioni, dipendenze e script (npm run dev, npm run build, ecc.).
+
+package-lock.json
+Generato automaticamente, blocca le versioni esatte delle dipendenze per avere build consistenti.
+
+README.md
+File di documentazione iniziale del progetto.
+
+vite.config.js
+Configurazione di Vite (es. alias dei percorsi, plugin, ecc.).
