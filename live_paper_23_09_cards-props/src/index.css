@@ -1,4 +1,16 @@
+/* index.css → stili globali + stili specifici per le card */
+
+/* 
+  :root come "contenitore" di pagina:
+  - limita la larghezza massima e centra orizzontalmente (margin: auto)
+  - imposta tipografia e colori di base
+*/
 :root {
+  max-width: 1280px;         /* larghezza massima della pagina */
+  margin: auto;              /* centra orizzontalmente il root */
+  padding: 2rem;             /* respiro interno ai bordi */
+  text-align: center;        /* testo centrato per default */
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -13,6 +25,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Link */
 a {
   font-weight: 500;
   color: #646cff;
@@ -22,19 +35,31 @@ a:hover {
   color: #535bf2;
 }
 
+/* 
+  BODY come layout centrale:
+  - Flexbox in colonna per impilare h1 e griglia
+  - centro orizzontale (align-items) e verticale (justify-content)
+  - altezza almeno pari alla viewport
+*/
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;    /* titolo sopra, griglia sotto */
+  justify-content: center;   /* centra verticalmente l'intero contenuto */
+  align-items: center;       /* centra orizzontalmente */
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh;         /* fallback */
+  min-height: 100dvh;        /* migliore gestione barre su mobile */
 }
 
+/* Titolo principale */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0;                 /* evita spazi extra sopra/sotto */
 }
 
+/* Bottoni generici */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,6 +79,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Tema chiaro */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -67,18 +93,24 @@ button:focus-visible {
   }
 }
 
-
-/* Griglia per allineare le card */
+/* 
+  Griglia delle card:
+  - auto-FIT invece di auto-fill per evitare colonne “vuote”
+  - minmax(240px, 1fr) → colonne responsive che crescono fino a riempire la riga
+  - max-width per non allargare troppo la riga
+  - margin auto per tenerla centrata sotto il titolo
+*/
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* colonne responsive */
   gap: 16px;
   padding: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 1100px;     /* limite della riga per leggibilità */
+  margin: 24px auto 0;   /* griglia centrata e separata dal titolo */
+  align-items: start;    /* evita stretching verticale delle card */
 }
 
-/* Stili della card */
+/* Card singola: bordo, raggio, ombra e hover */
 .card {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
@@ -92,6 +124,7 @@ button:focus-visible {
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 
+/* Immagine della card: copre l'area dedicata senza deformarsi */
 .card-image {
   width: 100%;
   height: 140px;
@@ -99,6 +132,7 @@ button:focus-visible {
   display: block;
 }
 
+/* Corpo della card: padding e tipografia */
 .card-body {
   padding: 14px 16px 16px;
 }
@@ -115,6 +149,7 @@ button:focus-visible {
   font-size: 14px;
 }
 
+/* Pulsante della card */
 .card-button {
   padding: 8px 12px;
   border: none;

@@ -1,4 +1,6 @@
-// src/components/Card.jsx
+// CARD.JSX E' IL COMPONENTE FIGLIO CHE RICEVE LE PROPS DAL COMPONENTE GENITORE APP
+// src/components/card.jsx
+
 export default function Card({ title, description, imageUrl }) {
     // Le props sono passate come oggetto destrutturato, in modo da poterle usare direttamente
     // senza dover scrivere props.title, props.description, ecc.
@@ -6,7 +8,7 @@ export default function Card({ title, description, imageUrl }) {
   return (
     <div className="card">
 
-        {/** In JSX, le graffe {} servono per inserire codice JavaScript dentro l’HTML. 
+        {/*  In JSX, le graffe {} servono per inserire codice JavaScript dentro l’HTML. 
              Quello che c’è dentro le graffe non è markup puro, ma espressioni JS. 
              motivo per cui prima di ogni espressione JS dobbiamo usare le graffe. */}
 
@@ -14,8 +16,8 @@ export default function Card({ title, description, imageUrl }) {
         <img className="card-image" src={imageUrl} alt={title} />
       )}
       <div className="card-body">
-        <h3 className="card-title">{title}</h3> {/** Usare le graffe per inserire il valore della prop title */}
-        <p className="card-description">{description}</p> {/** Usare le graffe per inserire il valore della prop description */}
+        <h3 className="card-title">{title}</h3> {/* Usare le graffe per inserire il valore della prop title */}
+        <p className="card-description">{description}</p> {/* Usare le graffe per inserire il valore della prop description */}
         <button className="card-button" onClick={() => alert(`Hai cliccato: ${title}`)}>
           Apri
         </button>
